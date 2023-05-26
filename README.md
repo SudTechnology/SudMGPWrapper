@@ -1,16 +1,19 @@
 # SudMGPWrapper
 
-This is a Wrapper for SudMGP SDK, To enable developers to quickly access the SudMGP SDK
+SudMGPWrapper是居于SudMGP SDK的封装，便于与SudMGP SDK进行交互
 
-## Installation with CocoaPods
+# 怎么选择使用哪个版本SDK？
+标准版本SDK支持更多游戏；Lite版本SDK只支持部分游戏. [详细支持游戏列表](https://docs.sud.tech/zh-CN/app/Client/StartUp.html)
 
-To integrate SudMGPWrapper into your Xcode project using CocoaPods, specify it in your `Podfile`:
-#### Standard version, depends on the corresponding SudMGP standard version, supports full game
+## 通过 CocoaPods方式安装
+
+在工程目录中的`Podfile`文件中键入一下依赖项：
+#### 标准版本，依赖标准版本SudMGP SDK
 ```ruby
 pod 'SudMGPWrapper', '~> 1.3.3.1'
 
 ```
-#### Lite version, depends on the corresponding SudMGP lightweight version, supports some games
+#### Lite版本，依赖Lite版SudMGP SDK
 ```ruby
 pod 'SudMGPWrapper_Lite', '~> 1.3.3'
 ```
