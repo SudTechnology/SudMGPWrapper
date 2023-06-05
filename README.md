@@ -7,13 +7,13 @@ SudMGPWrapper是居于SudMGP SDK的封装，便于与SudMGP SDK进行交互
 
 ## 通过 CocoaPods方式安装
 
-在工程目录中的`Podfile`文件中键入一下依赖项：
-#### 标准版本，依赖标准版本SudMGP SDK
+在工程目录中的`Podfile`文件中键入以下依赖项：
+#### 依赖标准版本SudMGP SDK
 ```ruby
 pod 'SudMGPWrapper', '~> 1.3.3.2'
 
 ```
-#### Lite版本，依赖Lite版SudMGP SDK
+#### 依赖Lite版本SudMGP SDK
 ```ruby
 pod 'SudMGPWrapper_Lite', '~> 1.3.3.2'
 ```
