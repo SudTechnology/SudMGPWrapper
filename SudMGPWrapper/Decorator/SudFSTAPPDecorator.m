@@ -13,8 +13,13 @@
 
 @implementation SudFSTAPPDecorator
 
+- (void)dealloc {
+    NSLog(@"dealloc:%@", [self class]);
+}
+
 - (void)setISudFSTAPP:(id <ISudFSTAPP>)iSudFSTAPP {
     if (_iSudFSTAPP) {
+        NSLog(@"_iSudFSTAPP will destroy");
         [_iSudFSTAPP destroyMG];
     }
     _iSudFSTAPP = iSudFSTAPP;
@@ -267,6 +272,11 @@
 /// app主动隐藏主界面 APP_COMMON_HIDE_GAME_SCENE
 - (void)notifyAppCommonHideGameScene {
     [self notifyStateChange:APP_COMMON_HIDE_GAME_SCENE dataJson:@{}.mj_JSONString];
+}
+
+/// app通知游戏爆词内容(谁是卧底) APP_COMMON_GAME_SEND_BURST_WORD
+- (void)notifyAppCommonGameSendBurstWord:(AppCommonGameSendBurstWord *)model {
+    [self notifyStateChange:APP_COMMON_GAME_SEND_BURST_WORD dataJson:model.mj_JSONString];
 }
 #pragma mark - 互动礼物
 

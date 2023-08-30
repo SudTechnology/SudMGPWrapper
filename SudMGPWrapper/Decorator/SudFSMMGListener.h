@@ -43,7 +43,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- * 游戏状态变化
+ * 游戏状态变化,如实现方实现了改接口，并返回YES，则数据解析完全由实现方自行处理，内部不在做数据模型的解析，返回NO则内部执行数据序列化
  * @param handle 回调句柄
  * @param state 游戏状态
  * @param dataJson 回调json
@@ -166,6 +166,18 @@ NS_ASSUME_NONNULL_BEGIN
 /// 可点击区域 MG_COMMON_SET_CLICK_RECT
 - (void)onGameMGCommonSetClickRect:(nonnull id <ISudFSMStateHandle>)handle model:(MGCustomGameSetClickRect *)model;
 
+/// 通知app点击了游戏的金币按钮 MG_COMMON_SELF_CLICK_GOLD_BTN
+- (void)onGameMGCommonSelfClickGoldBtn:(nonnull id <ISudFSMStateHandle>)handle model:(MgCommonSelfClickGoldBtnModel *)model;
+
+/// 通知app棋子到达终点 MG_COMMON_GAME_PIECE_ARRIVE_END
+- (void)onGameMGCommonGamePieceArriveEnd:(nonnull id <ISudFSMStateHandle>)handle model:(MgCommonGamePieceArriveEndModel *)model;
+
+/// 通知app玩家是否托管 MG_COMMON_GAME_PLAYER_MANAGED_STATE
+- (void)onGameMGCommonGamePlayerManagedState:(nonnull id <ISudFSMStateHandle>)handle model:(MgCommonGamePlayerManagedStateModel *)model;
+
+/// 游戏通知app爆词的内容 MG_COMMON_GAME_SEND_BURST_WORD
+- (void)onGameMGCommonGameSendBurstWord:(nonnull id <ISudFSMStateHandle>)handle model:(MgCommonGameSendBurstWordModel *)model;
+
 #pragma mark - 互动礼物<火箭>
 
 /// 礼物配置文件(火箭) MG_CUSTOM_ROCKET_CONFIG
@@ -230,6 +242,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 点击锁住组件((火箭) MG_CUSTOM_ROCKET_CLICK_LOCK_COMPONENT
 - (void)onGameMGCustomRocketClickLockComponent:(nonnull id <ISudFSMStateHandle>)handle model:(MGCustomRocketClickLockComponent *)model;
+
+/// 火箭效果飞行点击(火箭) MG_CUSTOM_ROCKET_FLY_CLICK
+- (void)onGameMGCustomRocketFlyClick:(nonnull id <ISudFSMStateHandle>)handle;
+
+/// 火箭效果飞行结束(火箭) MG_CUSTOM_ROCKET_FLY_END
+- (void)onGameMGCustomRocketFlyEnd:(nonnull id <ISudFSMStateHandle>)handle model:(MGCustomRocketFlyEnd *)model;
 
 /// 火箭的可点击区域((火箭) MG_CUSTOM_ROCKET_SET_CLICK_RECT
 - (void)onGameMGCustomRocketSetClickRect:(nonnull id <ISudFSMStateHandle>)handle model:(MgCommonSetClickRect *)model;

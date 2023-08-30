@@ -80,6 +80,16 @@ static NSString *MG_COMMON_SHOW_GAME_SCENE = @"mg_common_show_game_scene";
 /// 主界面已隐藏
 static NSString *MG_COMMON_HIDE_GAME_SCENE = @"mg_common_hide_game_scene";
 
+/// 通知app点击了游戏的金币按钮
+static NSString *MG_COMMON_SELF_CLICK_GOLD_BTN = @"mg_common_self_click_gold_btn";
+/// 通知app棋子到达终点
+static NSString *MG_COMMON_GAME_PIECE_ARRIVE_END = @"mg_common_game_piece_arrive_end";
+/// 通知app玩家是否托管
+static NSString *MG_COMMON_GAME_PLAYER_MANAGED_STATE = @"mg_common_game_player_managed_state";
+/// 游戏通知app爆词的内容
+static NSString *MG_COMMON_GAME_SEND_BURST_WORD = @"mg_common_game_send_burst_word";
+
+
 #pragma mark - 通用状态-玩家
 /// 加入状态
 static NSString *MG_COMMON_PLAYER_IN = @"mg_common_player_in";
@@ -175,20 +185,16 @@ static NSString *MG_COMMON_GAME_DISCO_ACTION_END = @"mg_common_game_disco_action
 
 /// 2.  通用状态-游戏: 关键词状态
 @interface MGCommonKeyWrodToHitModel : NSObject
-/// 单个关键词，兼容老版本
-@property(nonatomic, copy) NSString *word;
-/// 必填字段；关键词列表，可以传送多个关键词
-@property(nonatomic, strong)NSArray<NSString *> *wordList;
-/// 必填字段；关键词语言，默认:zh-CN(老版本游戏可能没有)；透传
-@property(nonatomic, copy) NSString *wordLanguage;
 /// 必填字段；text:文本包含匹配; number:数字等于匹配(必填字段)；默认:text(老版本游戏可能没有)；数字炸弹填number；透传
 @property(nonatomic, copy) NSString *wordType;
-/// 必填字段；false: 命中不停止；true:命中停止(必填字段)；默认:true(老版本游戏可能没有) 你演我猜填false；透传
-@property(nonatomic, assign) BOOL isCloseConnHitted;
-/// 必填字段，是否需要匹配关键字， 默认是true,   如果是false, 则只简单的返回语音识别文本；透传
-@property(nonatomic, assign) BOOL enableIsHit;
-/// 必填字段，是否需要返回转写文本，默认是true
-@property(nonatomic, assign) BOOL enableIsReturnText;
+/// 单个关键词，兼容老版本,  轮到自己猜词时才有值，否则为null
+@property(nonatomic, copy) NSString *word;
+/// 关键词，每一轮都会下发，不区分角色
+@property(nonatomic, copy) NSString *realWord;
+/// 必填字段；关键词列表，可以传送多个关键词,  轮到自己猜词时才有值，否则为null
+@property(nonatomic, strong)NSArray<NSString *> *wordList;
+/// 必填字段；关键词语言，默认:zh-CN
+@property(nonatomic, copy) NSString *wordLanguage;
 @end
 
 
@@ -359,19 +365,6 @@ MGCommonGameStateTypePlaying = 2, // 正在游戏中
 @interface MGCommonGameASRModel : NSObject
 /// true:打开语音识别 false:关闭语音识别
 @property(nonatomic, assign) BOOL isOpen;
-/// 必填字段；关键词列表，可以传送多个关键词
-@property(nonatomic, copy)NSArray <NSString *> *wordList;
-/// 必填字段；关键词语言，默认:zh-CN(老版本游戏可能没有)；透传
-@property(nonatomic, copy) NSString *wordLanguage;
-/// 必填字段；text:文本包含匹配; number:数字等于匹配(必填字段)；默认:text(老版本游戏可能没有)；数字炸弹填number；透传
-@property(nonatomic, copy) NSString *wordType;
-/// 必填字段；false: 命中不停止；true:命中停止(必填字段)；默认:true(老版本游戏可能没有) 你演我猜填false；透传
-@property(nonatomic, assign) BOOL isCloseConnHitted;
-/// 必填字段；f必填字段，是否需要匹配关键字， 默认是true,   如果是false, 则只简单的返回语音识别文本；透传
-@property(nonatomic, assign) BOOL enableIsHit;
-/// 必填字段，是否需要返回转写文本，默认是true
-@property(nonatomic, assign) BOOL enableIsReturnText;
-
 @end
 
 
@@ -668,6 +661,34 @@ MGCommonGameStateTypePlaying = 2, // 正在游戏中
 
 @interface MgCommonPlayerRoleIdModel : NSObject
 @property(nonatomic, strong)NSArray<MgCommonPlayerRoleIdItem*> *playersRoleId;
+@end
+
+
+#pragma mark - MG_COMMON_SELF_CLICK_GOLD_BTN
+@interface MgCommonSelfClickGoldBtnModel : NSObject
+
+@end
+
+#pragma mark - MG_COMMON_GAME_PIECE_ARRIVE_END
+@interface MgCommonGamePieceArriveEndModel : NSObject
+/// 玩家id
+@property(nonatomic, strong)NSString *uid;
+/// 棋子编号 0 ~ 3
+@property(nonatomic, assign)NSInteger pieceIndex;
+@end
+
+#pragma mark - MG_COMMON_GAME_PLAYER_MANAGED_STATE
+@interface MgCommonGamePlayerManagedStateModel : NSObject
+/// 玩家id
+@property(nonatomic, strong)NSString *uid;
+/// 0: 未托管 1：托管
+@property(nonatomic, assign)NSInteger managed;
+@end
+
+#pragma mark - MG_COMMON_GAME_SEND_BURST_WORD
+@interface MgCommonGameSendBurstWordModel : NSObject
+/// 爆词
+@property(nonatomic, strong)NSString *text;
 @end
 
 NS_ASSUME_NONNULL_END
