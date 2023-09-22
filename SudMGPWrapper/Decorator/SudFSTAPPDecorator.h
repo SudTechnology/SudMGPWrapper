@@ -45,6 +45,11 @@ NS_ASSUME_NONNULL_BEGIN
 /// 传输音频数据： 传入的音频数据必须是：PCM格式，采样率：16000， 采样位数：16， 声道数： MONO
 - (void)pushAudio:(NSData *)data;
 
+/// 状态通知（app to mg）
+/// @param state 状态名称
+/// @param dataJson 需传递的json
+- (void)notifyStateChange:(NSString *)state dataJson:(NSString *)dataJson;
+
 /// 加入,退出游戏
 /// @param isIn true 加入游戏，false 退出游戏
 /// @param seatIndex 加入的游戏位(座位号) 默认传seatIndex = -1 随机加入，seatIndex 从0开始，不可大于座位数
