@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SudMGPWrapper'
-  s.version          = '1.0.6'
+  s.version          = '1.3.7'
   s.summary          = 'A short description of SudMGPWrapper.'
   
   # This description is used to generate tags and improve search results.
@@ -21,9 +21,9 @@ Pod::Spec.new do |s|
   TODO: Add long description of the pod here.
   DESC
   
-  s.homepage         = 'https://github.com/dingguanghui/SudMGP'
+  s.homepage         = 'https://github.com/SudTechnology/SudMGPWrapper'
   s.license          = { :type => 'MIT', :file => 'SudMGPWrapper/LICENSE' }
-  s.author           = { 'dingguanghui' => 'dingguanghui@divtoss.com' }
+  s.author           = { 'sud.tech' => 'dev@sud.tech' }
   s.source       = {:path => '.'}
   s.frameworks = 'Foundation', 'UIKit'
   s.requires_arc = true
@@ -42,16 +42,16 @@ Pod::Spec.new do |s|
         'SudMGPWrapper/Model/**/*.{h,m,mm,cpp,c,hpp,cc,swift}',
         'SudMGPWrapper/State/**/*.{h,m,mm,cpp,c,hpp,cc,swift}',
       ]
-#      ss.vendored_frameworks = [
-#         'SudMGPSDK/SudMGP.xcframework'
-#      ]
+      # ss.vendored_frameworks = [
+      #    'SudMGPSDK/SudMGP.xcframework'
+      # ]
 
       # json
       ss.dependency 'MJExtension', '~> 3.4.1'
       # 轻量版（不支持部分游戏，包体较小）
-      #ss.dependency 'SudMGP_Lite', '~> 1.3.6'
+#      ss.dependency 'SudMGP_Lite', '1.3.7'
       # 标准版（支持全部游戏，包体会大一些）
-      ss.dependency 'SudMGP', '~> 1.3.6'
+      ss.dependency 'SudMGP', '~> 1.3.7'
     end
 end
 

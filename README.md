@@ -1,3 +1,4 @@
+[Endglish](README_en.md)
 ## SudMGPWrapper
 
 SudMGPWrapper是居于SudMGP SDK的封装，便于与SudMGP SDK进行交互
@@ -10,10 +11,10 @@ SudMGPWrapper是居于SudMGP SDK的封装，便于与SudMGP SDK进行交互
 在工程目录中的`Podfile`文件中键入以下依赖项：
 #### 依赖标准版本SudMGP SDK
 ```ruby
-pod 'SudMGPWrapper', '~> 1.3.6.1'
+pod 'SudMGPWrapper', '~> 1.3.7'
 
 ```
 #### 依赖Lite版本SudMGP SDK
 ```ruby
-pod 'SudMGPWrapper_Lite', '~> 1.3.6.1'
+pod 'SudMGPWrapper_Lite', '~> 1.3.7'
 ```
