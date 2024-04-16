@@ -126,6 +126,8 @@ static NSString *MG_COMMON_GAME_FPS = @"mg_common_game_fps";
 static NSString *MG_COMMON_SELF_CLICK_GOOD = @"mg_common_self_click_good";
 /// 游戏通知 app 玩家被扔便便(仅对你画我猜有效)
 static NSString *MG_COMMON_SELF_CLICK_POOP = @"mg_common_self_click_poop";
+/// 游戏通知 游戏场景销毁
+static NSString *MG_COMMON_DESTROY_GAME_SCENE = @"mg_common_destroy_game_scene";
 
 #pragma mark - 通用状态-玩家
 /// 加入状态
@@ -383,7 +385,7 @@ typedef NS_ENUM(NSInteger, MGCommonGameStateType) {
 /// 通用状态-游戏: 游戏通知app层播放背景音乐状态
 @interface MGCommonGameBgMusicState : NSObject
 /// 背景音乐的开关状态 true: 开，false: 关
-@property(nonatomic, assign) BOOL isPlay;
+@property(nonatomic, assign) BOOL state;
 @end
 
 
@@ -856,4 +858,8 @@ typedef NS_ENUM(NSInteger, MGCommonGameStateType) {
 
 @end
 
+#pragma mark - MG_COMMON_DESTROY_GAME_SCENE
+@interface MgCommonDestroyGameSceneModel:NSObject
+
+@end
 NS_ASSUME_NONNULL_END

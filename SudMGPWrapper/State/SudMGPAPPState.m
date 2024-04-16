@@ -111,3 +111,8 @@
 @implementation AppCommonGameUiCustomConfigLudo
 
 @end
+
+@implementation AppCommonUpdateGameMoney
+
+@end
+

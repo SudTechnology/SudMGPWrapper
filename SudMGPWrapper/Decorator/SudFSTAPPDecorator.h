@@ -189,6 +189,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// app通知游戏定制UI配置表 (支持ludo和五子棋) APP_COMMON_GAME_UI_CUSTOM_CONFIG
 - (void)notifyAppCommonGameUiCustomConfig:(AppCommonGameUiCustomConfig *)model;
 
+/// app通知游戏侧更新游戏币（概率游戏相关玩法) APP_COMMON_UPDATE_GAME_MONEY
+- (void)notifyAppCommonUpdateGameMoney:(AppCommonUpdateGameMoney *)model;
+
 #pragma mark - 互动礼物<火箭>
 
 /// 礼物配置文件 APP_CUSTOM_ROCKET_CONFIG

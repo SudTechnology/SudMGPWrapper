@@ -365,5 +365,10 @@
 @implementation MgCommonSelfClickPoopModel
 
 @end
+#pragma mark - MG_COMMON_DESTROY_GAME_SCENE
+@implementation MgCommonDestroyGameSceneModel
+
+@end
+
 
 

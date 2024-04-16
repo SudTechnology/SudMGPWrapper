@@ -762,7 +762,16 @@
             [self.listener onGameMgCommonSelfClickPoop:handle model:m];
             return;
         }
-    } else {
+    } else if ([state isEqualToString:MG_COMMON_DESTROY_GAME_SCENE]) {
+        /// 游戏通知 MG_COMMON_DESTROY_GAME_SCENE
+        MgCommonDestroyGameSceneModel *m = [MgCommonDestroyGameSceneModel mj_objectWithKeyValues:dataJson];
+        if (self.listener != nil && [self.listener respondsToSelector:@selector(onGameMgCommonDestroyGameScene:model:)]) {
+            [self.listener onGameMgCommonDestroyGameScene:handle model:m];
+            return;
+        }
+    }
+    
+    else {
         /// 其他状态
         NSLog(@"ISudFSMMG:onGameStateChange:游戏->APP:state:%@", state);
     }

@@ -83,6 +83,9 @@ static NSString *APP_COMMON_GAME_SETTINGS = @"app_common_game_settings";
 static NSString *APP_COMMON_GAME_BACK_LOBBY = @"app_common_game_back_lobby";
 /// app通知游戏定制UI配置表 (支持ludo和五子棋)
 static NSString *APP_COMMON_GAME_UI_CUSTOM_CONFIG = @"app_common_game_ui_custom_config";
+/// app通知游戏侧更新游戏币（概率游戏相关玩法)
+static NSString *APP_COMMON_UPDATE_GAME_MONEY = @"app_common_update_game_money";
+
 
 /// 元宇宙砂砂舞相关设置参数model（app_common_game_disco_action）
 /// 参考文档: https://docs.sud.tech/zh-CN/app/Client/APPFST/CommonStateForDisco.html
@@ -324,4 +327,9 @@ static NSString *APP_COMMON_GAME_UI_CUSTOM_CONFIG = @"app_common_game_ui_custom_
 @property(nonatomic, strong)NSString *chessRed;
 /// 玩家设置，具体参见 https://docs.sud.tech/zh-CN/app/Client/APPFST/CommonState.html
 @property(nonatomic, strong)NSDictionary *players;
+@end
+
+/// APP_COMMON_UPDATE_GAME_MONEY
+@interface AppCommonUpdateGameMoney : NSObject
+
 @end

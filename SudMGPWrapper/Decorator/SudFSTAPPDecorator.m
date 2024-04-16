@@ -324,6 +324,11 @@
     [self notifyStateChange:APP_COMMON_GAME_UI_CUSTOM_CONFIG dataJson:model.mj_JSONString];
 }
 
+/// app通知游戏定制UI配置表 (支持ludo和五子棋) APP_COMMON_UPDATE_GAME_MONEY
+- (void)notifyAppCommonUpdateGameMoney:(AppCommonUpdateGameMoney *)model {
+    [self notifyStateChange:APP_COMMON_UPDATE_GAME_MONEY dataJson:model.mj_JSONString];
+}
+
 #pragma mark - 互动礼物
 
 /// 礼物配置文件 APP_CUSTOM_ROCKET_CONFIG

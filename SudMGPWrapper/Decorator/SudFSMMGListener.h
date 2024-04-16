@@ -233,6 +233,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 游戏通知 app 玩家被扔便便(仅对你画我猜有效) MG_COMMON_SELF_CLICK_POOP
 - (void)onGameMgCommonSelfClickPoop:(nonnull id <ISudFSMStateHandle>)handle model:(MgCommonSelfClickPoopModel *)model;
 
+/// 游戏通知游戏场景销毁 MG_COMMON_DESTROY_GAME_SCENE
+- (void)onGameMgCommonDestroyGameScene:(nonnull id <ISudFSMStateHandle>)handle model:(MgCommonDestroyGameSceneModel *)model;
+
 #pragma mark - 互动礼物<火箭>
 
 /// 礼物配置文件(火箭) MG_CUSTOM_ROCKET_CONFIG
