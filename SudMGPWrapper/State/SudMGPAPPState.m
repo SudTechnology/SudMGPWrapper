@@ -116,3 +116,8 @@
 
 @end
 
+@implementation AppCommonGamePlayerPropsCards
+@end
+
+@implementation AppCommonGamePlayerPropsCardsEffect
+@end

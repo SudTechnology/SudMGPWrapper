@@ -128,7 +128,8 @@ static NSString *MG_COMMON_SELF_CLICK_GOOD = @"mg_common_self_click_good";
 static NSString *MG_COMMON_SELF_CLICK_POOP = @"mg_common_self_click_poop";
 /// 游戏通知 游戏场景销毁
 static NSString *MG_COMMON_DESTROY_GAME_SCENE = @"mg_common_destroy_game_scene";
-
+/// 游戏向app发送获取玩家持有的指定点数道具卡（只支持飞行棋）
+static NSString *MG_COMMON_GAME_PLAYER_PROPS_CARDS = @"mg_common_game_player_props_cards";
 #pragma mark - 通用状态-玩家
 /// 加入状态
 static NSString *MG_COMMON_PLAYER_IN = @"mg_common_player_in";
@@ -199,6 +200,13 @@ static NSString *MG_COMMON_GAME_DISCO_ACTION_END = @"mg_common_game_disco_action
 @property(nonatomic, copy) NSString *ar_SA;
 @property(nonatomic, copy) NSString *tr_TR;
 @property(nonatomic, copy) NSString *ur_PK;
+
+@property(nonatomic, copy) NSString *pt_PT;
+@property(nonatomic, copy) NSString *hi_IN;
+@property(nonatomic, copy) NSString *bn_BD;
+@property(nonatomic, copy) NSString *tl_PH;
+@property(nonatomic, copy) NSString *fa_IR;
+@property(nonatomic, copy) NSString *ru_RU;
 @end
 
 @interface GamePublicUser : NSObject
@@ -862,4 +870,10 @@ typedef NS_ENUM(NSInteger, MGCommonGameStateType) {
 @interface MgCommonDestroyGameSceneModel:NSObject
 
 @end
+
+#pragma mark - MG_COMMON_GAME_PLAYER_PROPS_CARDS
+@interface MgCommonGamePlayerPropsCardsModel:NSObject
+
+@end
+
 NS_ASSUME_NONNULL_END

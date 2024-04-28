@@ -329,6 +329,16 @@
     [self notifyStateChange:APP_COMMON_UPDATE_GAME_MONEY dataJson:model.mj_JSONString];
 }
 
+/// app通知游戏玩家所持有的道具卡（只支持飞行棋） APP_COMMON_GAME_PLAYER_PROPS_CARDS
+- (void)notifyAppCommonGamePlayerPropsCards:(AppCommonGamePlayerPropsCards *)model {
+    [self notifyStateChange:APP_COMMON_GAME_PLAYER_PROPS_CARDS dataJson:model.mj_JSONString];
+}
+
+/// app通知游戏播放玩家所获得的道具卡的特效（只支持飞行棋） APP_COMMON_GAME_PLAYER_PROPS_CARDS_EFFECT
+- (void)notifyAppCommonGamePlayerPropsCardsEffect:(AppCommonGamePlayerPropsCardsEffect *)model {
+    [self notifyStateChange:APP_COMMON_GAME_PLAYER_PROPS_CARDS_EFFECT dataJson:model.mj_JSONString];
+}
+
 #pragma mark - 互动礼物
 
 /// 礼物配置文件 APP_CUSTOM_ROCKET_CONFIG

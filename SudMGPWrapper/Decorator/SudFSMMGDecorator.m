@@ -769,6 +769,13 @@
             [self.listener onGameMgCommonDestroyGameScene:handle model:m];
             return;
         }
+    } else if ([state isEqualToString:MG_COMMON_GAME_PLAYER_PROPS_CARDS]) {
+        /// 游戏通知 MG_COMMON_GAME_PLAYER_PROPS_CARDS
+        MgCommonGamePlayerPropsCardsModel *m = [MgCommonGamePlayerPropsCardsModel mj_objectWithKeyValues:dataJson];
+        if (self.listener != nil && [self.listener respondsToSelector:@selector(onGameMgCommonGamePlayerPropsCards:model:)]) {
+            [self.listener onGameMgCommonGamePlayerPropsCards:handle model:m];
+            return;
+        }
     }
     
     else {

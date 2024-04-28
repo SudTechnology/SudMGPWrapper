@@ -235,7 +235,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 游戏通知游戏场景销毁 MG_COMMON_DESTROY_GAME_SCENE
 - (void)onGameMgCommonDestroyGameScene:(nonnull id <ISudFSMStateHandle>)handle model:(MgCommonDestroyGameSceneModel *)model;
-
+/// 游戏向app发送获取玩家持有的指定点数道具卡（只支持飞行棋） MG_COMMON_GAME_PLAYER_PROPS_CARDS
+- (void)onGameMgCommonGamePlayerPropsCards:(nonnull id <ISudFSMStateHandle>)handle model:(MgCommonGamePlayerPropsCardsModel *)model;
 #pragma mark - 互动礼物<火箭>
 
 /// 礼物配置文件(火箭) MG_CUSTOM_ROCKET_CONFIG
