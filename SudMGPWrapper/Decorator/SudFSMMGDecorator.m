@@ -17,6 +17,8 @@
 @property(nonatomic, weak) id <SudFSMMGListener> listener;
 /// 当前用户ID
 @property(nonatomic, strong) NSString *currentUserId;
+/// 当前加入游戏玩家ID列表
+@property (nonatomic, strong) NSMutableArray <NSString *>*joinedGamePlayerIdList;
 @end
 
 @implementation SudFSMMGDecorator
@@ -996,16 +998,16 @@
     }
 
     if (m.isIn) {
-        [self.onlineUserIdList addObject:userId];
-        NSSet *set = [NSSet setWithArray:self.onlineUserIdList];
-        [self.onlineUserIdList setArray:[set allObjects]];
+        [self.joinedGamePlayerIdList addObject:userId];
+        NSSet *set = [NSSet setWithArray:self.joinedGamePlayerIdList];
+        [self.joinedGamePlayerIdList setArray:[set allObjects]];
     } else {
         [self.gamePlayerStateMap removeObjectForKey:[NSString stringWithFormat:@"%@%@", userId, MG_COMMON_PLAYER_IN]];
-        if (self.onlineUserIdList.count > 0) {
-            NSMutableArray *arrTemp = [[NSMutableArray alloc] initWithArray:self.onlineUserIdList];
+        if (self.joinedGamePlayerIdList.count > 0) {
+            NSMutableArray *arrTemp = [[NSMutableArray alloc] initWithArray:self.joinedGamePlayerIdList];
             for (NSString *item in arrTemp) {
                 if ([item isEqualToString:userId]) {
-                    [self.onlineUserIdList removeObject:userId];
+                    [self.joinedGamePlayerIdList removeObject:userId];
                 }
             }
         }
@@ -1033,7 +1035,7 @@
 
 /// 清除所有存储数组
 - (void)clearAllStates {
-    [self.onlineUserIdList removeAllObjects];
+    [self.joinedGamePlayerIdList removeAllObjects];
     self.drawKeyWord = @"";
     self.captainUserId = @"";
     self.keyWordHiting = false;
@@ -1115,11 +1117,11 @@
     return isCaptain;
 }
 
-- (NSMutableArray<NSString *> *)onlineUserIdList {
-    if (_onlineUserIdList == nil) {
-        _onlineUserIdList = NSMutableArray.new;
+- (NSMutableArray<NSString *> *)joinedGamePlayerIdList {
+    if (_joinedGamePlayerIdList == nil) {
+        _joinedGamePlayerIdList = NSMutableArray.new;
     }
-    return _onlineUserIdList;;
+    return _joinedGamePlayerIdList;;
 }
 
 - (NSMutableDictionary *)gamePlayerStateMap {
@@ -1129,4 +1131,13 @@
     return _gamePlayerStateMap;
 }
 
+/// 当前游戏在线userid列表
+- (NSArray <NSString *>*)onlineUserIdList {
+    return self.joinedGamePlayerIdList;
+}
+
+/// 获取当前玩家列表(不含观战人数)
+- (NSArray<NSString *> *)getJoinedGamePlayerIdList {
+    return self.joinedGamePlayerIdList;
+}
 @end
