@@ -421,6 +421,8 @@ typedef NS_ENUM(NSInteger, MGCommonGameStateType) {
 @interface MGCommonGameSelfMicrophone : NSObject
 /// 麦克风开关状态 true: 开，false: 关
 @property(nonatomic, assign) BOOL isOn;
+/// 1：白天 2：黑夜 3：非游戏
+@property(nonatomic, assign) NSInteger state;
 @end
 
 
@@ -430,6 +432,8 @@ typedef NS_ENUM(NSInteger, MGCommonGameStateType) {
 @interface MGCommonGameSelfHeadphone : NSObject
 /// 耳机（听筒，喇叭）开关状态 true: 开，false: 关
 @property(nonatomic, assign) BOOL isOn;
+/// 1：白天 2：黑夜 3：非游戏
+@property(nonatomic, assign) NSInteger state;
 @end
 
 

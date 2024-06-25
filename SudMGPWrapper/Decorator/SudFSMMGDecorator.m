@@ -1072,6 +1072,9 @@
 
 /// 获取用户是否在准备中
 - (BOOL)isPlayerIsReady:(NSString *)userId {
+    if (![self isPlayerIn:userId]) {
+        return false;
+    }
     MGPlayerStateMapModel *mapModel = self.gamePlayerStateMap[[NSString stringWithFormat:@"%@%@", userId, MG_COMMON_PLAYER_READY]];
     if ([mapModel.model isKindOfClass:MGCommonPlayerReadyModel.class]) {
         MGCommonPlayerReadyModel *m = mapModel.model;
@@ -1082,6 +1085,9 @@
 
 /// 获取用户是否在游戏中
 - (BOOL)isPlayerIsPlaying:(NSString *)userId {
+    if (![self isPlayerIn:userId]) {
+        return false;
+    }
     MGPlayerStateMapModel *mapModel = self.gamePlayerStateMap[[NSString stringWithFormat:@"%@%@", userId, MG_COMMON_PLAYER_PLAYING]];
     if ([mapModel.model isKindOfClass:MGCommonPlayerPlayingModel.class]) {
         MGCommonPlayerPlayingModel *m = mapModel.model;
@@ -1092,16 +1098,14 @@
 
 /// 获取用户是否已经加入了游戏
 - (BOOL)isPlayerInGame:(NSString *)userId {
-    MGPlayerStateMapModel *mapModel = self.gamePlayerStateMap[[NSString stringWithFormat:@"%@%@", userId, MG_COMMON_PLAYER_IN]];
-    //    MGPlayerStateMapModel *mapModel = [self.gamePlayerStateMap objectForKey:userId];
-    if (mapModel != nil) {
-        return true;
-    }
-    return false;
+    return [self isPlayerIn:userId];
 }
 
 /// 获取用户是否在在绘画
 - (BOOL)isPlayerPaining:(NSString *)userId {
+    if (![self isPlayerIn:userId]) {
+        return false;
+    }
     MGPlayerStateMapModel *mapModel = self.gamePlayerStateMap[[NSString stringWithFormat:@"%@%@", userId, MG_DG_PAINTING]];
     if ([mapModel.model isKindOfClass:MGDGPaintingModel.class]) {
         MGDGPaintingModel *m = mapModel.model;
