@@ -130,6 +130,11 @@ static NSString *MG_COMMON_SELF_CLICK_POOP = @"mg_common_self_click_poop";
 static NSString *MG_COMMON_DESTROY_GAME_SCENE = @"mg_common_destroy_game_scene";
 /// 游戏向app发送获取玩家持有的指定点数道具卡（只支持飞行棋）
 static NSString *MG_COMMON_GAME_PLAYER_PROPS_CARDS = @"mg_common_game_player_props_cards";
+/// 游戏向app发送获游戏通用数据
+static NSString *MG_COMMON_GAME_INFO_X = @"mg_common_game_info_x";
+/// 游戏通知app击球状态（只支持桌球）
+static NSString *MG_COMMON_GAME_BILLIARDS_HIT_STATE = @"mg_common_game_billiards_hit_state";
+
 #pragma mark - 通用状态-玩家
 /// 加入状态
 static NSString *MG_COMMON_PLAYER_IN = @"mg_common_player_in";
@@ -559,7 +564,8 @@ typedef NS_ENUM(NSInteger, MGCommonGameStateType) {
 @property(nonatomic, copy) NSString *actionId;
 /// true 指令成功，false 指令失败
 @property(nonatomic, assign) BOOL isSuccess;
-
+/// 返回错误码
+@property(nonatomic, assign) BOOL errCode;
 @end
 
 #pragma mark - 元宇宙砂砂舞 指令动作结束通知  MG_COMMON_GAME_DISCO_ACTION_END
@@ -878,6 +884,22 @@ typedef NS_ENUM(NSInteger, MGCommonGameStateType) {
 #pragma mark - MG_COMMON_GAME_PLAYER_PROPS_CARDS
 @interface MgCommonGamePlayerPropsCardsModel:NSObject
 
+@end
+
+#pragma mark - MG_COMMON_GAME_INFO_X
+@interface MgCommonGameInfoXModel:NSObject
+/// 事件名称 ，（注：具体游戏参考如下）https://docs.sud.tech/zh-CN/app/Client/MGFSM/CommonStateGame.html
+@property(nonatomic, strong)NSString *eventName;
+/// 具体的数据，为一个JSON字符串， （注：具体游戏参考如下） https://docs.sud.tech/zh-CN/app/Client/MGFSM/CommonStateGame.html
+@property(nonatomic, strong)NSString *data;
+@end
+
+#pragma mark - MG_COMMON_GAME_BILLIARDS_HIT_STATE
+@interface MgCommonGameBilliardsHitStateModel:NSObject
+/// 操作玩家的id
+@property(nonatomic, strong)NSString *uid;
+/// 请查看下面state状态说明 https://docs.sud.tech/zh-CN/app/Client/MGFSM/CommonStateGame.html
+@property(nonatomic, assign)NSInteger state;
 @end
 
 NS_ASSUME_NONNULL_END

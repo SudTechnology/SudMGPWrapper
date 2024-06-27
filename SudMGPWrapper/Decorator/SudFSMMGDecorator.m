@@ -213,12 +213,6 @@
             [self.listener onGameMGCommonSelfClickShareBtn:handle model:m];
             return;
         }
-    } else if ([state isEqualToString:MG_COMMON_GAME_STATE]) {
-        MGCommonGameState *m = [MGCommonGameState mj_objectWithKeyValues:dataJson];
-        if (self.listener != nil && [self.listener respondsToSelector:@selector(onGameMGCommonGameState:model:)]) {
-            [self.listener onGameMGCommonGameState:handle model:m];
-            return;
-        }
     } else if ([state isEqualToString:MG_COMMON_SELF_CLICK_GAME_SETTLE_CLOSE_BTN]) {
         MGCommonSelfClickGameSettleCloseBtn *m = [MGCommonSelfClickGameSettleCloseBtn mj_objectWithKeyValues:dataJson];
         if (self.listener != nil && [self.listener respondsToSelector:@selector(onGameMGCommonSelfClickGameSettleCloseBtn:model:)]) {
@@ -778,6 +772,23 @@
             [self.listener onGameMgCommonGamePlayerPropsCards:handle model:m];
             return;
         }
+        
+    } else if ([state isEqualToString:MG_COMMON_GAME_INFO_X]) {
+        /// 游戏通知 MG_COMMON_GAME_INFO_X
+        MgCommonGameInfoXModel *m = [MgCommonGameInfoXModel mj_objectWithKeyValues:dataJson];
+        if (self.listener != nil && [self.listener respondsToSelector:@selector(onGameMgCommonGameInfoX:model:)]) {
+            [self.listener onGameMgCommonGameInfoX:handle model:m];
+            return;
+        }
+        
+    } else if ([state isEqualToString:MG_COMMON_GAME_INFO_X]) {
+        /// 游戏通知 MG_COMMON_GAME_BILLIARDS_HIT_STATE
+        MgCommonGameBilliardsHitStateModel *m = [MgCommonGameBilliardsHitStateModel mj_objectWithKeyValues:dataJson];
+        if (self.listener != nil && [self.listener respondsToSelector:@selector(onGameMgCommonGameBilliardsHitState:model:)]) {
+            [self.listener onGameMgCommonGameBilliardsHitState:handle model:m];
+            return;
+        }
+        
     }
     
     else {

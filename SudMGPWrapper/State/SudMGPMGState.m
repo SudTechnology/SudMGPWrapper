@@ -383,3 +383,12 @@
 @implementation MgCommonGamePlayerPropsCardsModel
 
 @end
+
+#pragma mark - MG_COMMON_GAME_INFO_X
+@implementation MgCommonGameInfoXModel
+@end
+
+#pragma mark - MG_COMMON_GAME_BILLIARDS_HIT_STATE
+@implementation MgCommonGameBilliardsHitStateModel
+@end
+

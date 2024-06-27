@@ -233,6 +233,13 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)onGameMgCommonDestroyGameScene:(nonnull id <ISudFSMStateHandle>)handle model:(MgCommonDestroyGameSceneModel *)model;
 /// 游戏向app发送获取玩家持有的指定点数道具卡（只支持飞行棋） MG_COMMON_GAME_PLAYER_PROPS_CARDS
 - (void)onGameMgCommonGamePlayerPropsCards:(nonnull id <ISudFSMStateHandle>)handle model:(MgCommonGamePlayerPropsCardsModel *)model;
+
+/// 游戏向app发送获游戏通用数据 MG_COMMON_GAME_INFO_X
+- (void)onGameMgCommonGameInfoX:(nonnull id <ISudFSMStateHandle>)handle model:(MgCommonGameInfoXModel *)model;
+
+/// 游戏通知app击球状态（只支持桌球） MG_COMMON_GAME_BILLIARDS_HIT_STATE
+- (void)onGameMgCommonGameBilliardsHitState:(nonnull id <ISudFSMStateHandle>)handle model:(MgCommonGameBilliardsHitStateModel *)model;
+
 #pragma mark - 互动礼物<火箭>
 
 /// 礼物配置文件(火箭) MG_CUSTOM_ROCKET_CONFIG
