@@ -303,6 +303,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong) GameUi *ui;
 @property(nonatomic, assign) NSInteger gameMode;
 @property(nonatomic, assign) NSInteger gameCPU;
+/// 是否游戏区域根据安全区自适应，【0默认、1自适应】
+@property(nonatomic, assign) NSInteger autoScale;
 
 /// 默认配置
 + (GameCfgModel *)defaultCfgModel;
