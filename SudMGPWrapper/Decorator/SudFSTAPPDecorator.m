@@ -31,20 +31,22 @@
 - (void)addNotification {
     NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
     [defaultCenter removeObserver:self];
-    // 维护游戏进入前后台状态
-    [defaultCenter addObserver:self selector:@selector(applicationDidEnterBackground:) name:UIApplicationDidEnterBackgroundNotification object:nil];
-    [defaultCenter addObserver:self selector:@selector(applicationWillEnterForeground:) name:UIApplicationWillEnterForegroundNotification object:nil];
+    // 维护游戏进入应用活跃非活跃时状态
+    [defaultCenter addObserver:self selector:@selector(appDidBecomeActive:) name:UIApplicationDidBecomeActiveNotification object:nil];
+    [defaultCenter addObserver:self selector:@selector(appDidBecomeInactive:) name:UIApplicationWillResignActiveNotification object:nil];
 }
 
-- (void)applicationDidEnterBackground:(NSNotification *)notification {
+- (void)appDidBecomeActive:(NSNotification *)notification {
+    NSLog(@"SudMGPWrapper appDidBecomeActive");
     if (_iSudFSTAPP) {
-        [_iSudFSTAPP pauseMG];
+        [_iSudFSTAPP playMG];
     }
 }
 
-- (void)applicationWillEnterForeground:(NSNotification *)notification {
+- (void)appDidBecomeInactive:(NSNotification *)notification {
+    NSLog(@"SudMGPWrapper appDidBecomeInactive");
     if (_iSudFSTAPP) {
-        [_iSudFSTAPP playMG];
+        [_iSudFSTAPP pauseMG];
     }
 }
 
