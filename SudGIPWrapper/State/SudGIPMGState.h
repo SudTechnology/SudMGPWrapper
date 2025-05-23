@@ -1,5 +1,5 @@
 //
-//  SudMGPMGState.h
+//  SudGIPMGState.h
 //  HelloSud-iOS
 //
 // Copyright © Sud.Tech (https://sud.tech)
@@ -9,9 +9,10 @@
 
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
-#import "SudMGPMGRocketState.h"
-#import "SudMGPMGBaseballState.h"
-#import "SudMGPMGAudio3dState.h"
+#import <SudGIP/SudGIP-umbrella.h>
+#import "SudGIPMGRocketState.h"
+#import "SudGIPMGBaseballState.h"
+#import "SudGIPMGAudio3dState.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
